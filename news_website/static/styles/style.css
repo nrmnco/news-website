@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.webp');
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.landing-container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.big-text {
+    font-family: 'Unica One', sans-serif;
+    font-size: 110px;
+    margin-bottom: 30px;
+}
+
+.buttons-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.landing-button {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 40px;
+    margin: 20px;
+    text-decoration: none;
+    color: #fff;
+    /* border: 2px solid #fff; */
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.landing-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5 px;
+}
+
+/* Positioning each button in a different corner */
+.button-bottom-right {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+}
+
+.button-bottom-left {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+}
+
+.button-top-right {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+}
+
+.button-top-left {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+}

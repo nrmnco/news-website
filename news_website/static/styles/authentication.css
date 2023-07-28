@@ -1,0 +1,139 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.webp');
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Adding an overlay to make the background image darker */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.big-text {
+    font-family: 'Unica One', sans-serif;
+    font-size: 56px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.sign-in-form {
+    background-color: rgba(50, 50, 50);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.auth-input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 16px;
+}
+
+.auth-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1; /* Firefox */
+}
+
+.choose-text {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+
+}
+
+.auth-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+}
+
+.auth-button {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.topic-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the buttons horizontally */
+    margin-bottom: 10px;
+}
+
+.topic-button {
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px; /* Add margin to create space between buttons */
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 0 0 calc(50% - 20px); /* Show two buttons per row with some spacing */
+    max-width: calc(50% - 20px);
+}
+
+/* Adjust the number of buttons per row as needed for larger screens */
+@media screen and (min-width: 768px) {
+    .topic-button {
+        flex: 0 0 calc(33.333% - 20px); /* Show three buttons per row with some spacing */
+        max-width: calc(33.333% - 20px);
+    }
+}
+.topic-button.selected {
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+}

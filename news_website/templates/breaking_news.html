@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Brief Description</title>
+    <link rel="shortcut icon" type="x"href="{% static 'images/icon.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Albert+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/breaking_news.css' %}">
+</head>
+
+<body>
+    <div class="background-overlay"></div> <!-- Add an overlay container -->
+
+    <div class="container">
+        <div class="big-text">Stay informed. Know the truth.</div>
+        {% for article in articles %}
+        <div class="news-item">
+            <a href="{{ article.url }}" class="news-title">{{ article.title }}</a>
+            <div class="news-date">Date: {{ article.date }}</div>
+            <div class="news-description">{{ article.content }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

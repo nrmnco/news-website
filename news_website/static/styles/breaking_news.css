@@ -1,0 +1,102 @@
+:root {
+    --background-overlay-opacity: 0.8; /* Adjust the overlay opacity here (0 to 1) */
+    --scrollbar-color: #555; /* Adjust the scrollbar color here */
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background.webp');
+    background-size: cover;
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1; /* Put the overlay behind the content container */
+}
+
+/* Adding an overlay to make the background image darker */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.container {
+    text-align: left;
+    z-index: 1;
+    overflow-y: scroll; /* Allow the content to scroll if it overflows */
+    max-height: 100vh; /* Limit the content container's height to the viewport height */
+    scrollbar-color: var(--scrollbar-color) transparent; 
+}
+
+
+/* Target the scrollbar */
+.container::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .content-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .content-container::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color); /* Use the custom property for the thumb color */
+  }
+
+.big-text {
+    font-family: 'Unica One', sans-serif;
+    font-size: 56px;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.news-item {
+    border-bottom: 1px solid #fff;
+    padding: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.news-title {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.news-description {
+    font-size: 16px;
+    color: #fff;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #ddd;
+    text-align: left;
+    margin-top: 10px;
+}

@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" type="x"href="{% static 'images/icon.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Albert+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+    <style>
+        .home-button {
+            font-family: 'Albert Sans', sans-serif;
+            display: absolute;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px 40px;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            /* border: 2px solid #fff; */
+            border-radius: 15px;
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+
+        .home-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5 px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="big-text">Login</div>
+        <form class="login-form" method="post">
+            {% csrf_token %}
+            <input type="text" class="login-input" name="username" placeholder="Username">
+            <input type="password" class="login-input" name="password" placeholder="Password">
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+    <a href="{% url 'home' %}" class="home-button">Home</a>
+</body>
+
+</html>

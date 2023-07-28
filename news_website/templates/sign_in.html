@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="shortcut icon" type="x"href="{% static 'images/icon.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Albert+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/authentication.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="big-text">
+            Authentication
+        </div>
+        <form class="sign-in-form" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" class="auth-input" placeholder="Name">
+            <input type="password" name="password" class="auth-input" placeholder="Password">
+            <div class="choose-text">Choose topics</div>
+            <!-- Use individual buttons for topics -->
+            <div class="topic-buttons">
+                <button type="button" class="topic-button" data-value="Политика и международные отношения">Политика и международные отношения</button>
+                <button type="button" class="topic-button" data-value="Экономика и финансы">Экономика и финансы</button>
+                <button type="button" class="topic-button" data-value="Общественные проблемы и социальная сфера">Общественные проблемы и социальная сфера</button>
+                <button type="button" class="topic-button" data-value="Наука и технологии">Наука и технологии</button>
+                <button type="button" class="topic-button" data-value="Здравоохранение и медицина">Здравоохранение и медицина</button>
+                <button type="button" class="topic-button" data-value="Культура искусство и развлечения">Культура искусство и развлечения</button>
+                <button type="button" class="topic-button" data-value="Спорт и спортивные события">Спорт и спортивные события</button>
+                <button type="button" class="topic-button" data-value="Экология и природные ресурсы">Экология и природные ресурсы</button>
+                <button type="button" class="topic-button" data-value="Образование и научные исследования">Образование и научные исследования</button>
+                <button type="button" class="topic-button" data-value="Криминальная хроника и правоохранительные органы">Криминальная хроника и правоохранительные органы</button>
+                <button type="button" class="topic-button" data-value="Туризм и путешествия">Туризм и путешествия</button>
+                <button type="button" class="topic-button" data-value="Религия и вероисповедания">Религия и вероисповедания</button>
+                <button type="button" class="topic-button" data-value="Транспорт и инфраструктура">Транспорт и инфраструктура</button>
+                <button type="button" class="topic-button" data-value="Военные события и безопасность">Военные события и безопасность</button>
+                <button type="button" class="topic-button" data-value="Миграция и беженцы">Миграция и беженцы</button>
+                <button type="button" class="topic-button" data-value="Инновации и стартапы">Инновации и стартапы</button>
+                <button type="button" class="topic-button" data-value="Гуманитарная помощь и благотворительность">Гуманитарная помощь и благотворительность</button>
+                <button type="button" class="topic-button" data-value="События в мире и геополитика">События в мире и геополитика</button>
+                <button type="button" class="topic-button" data-value="События в стране и региональные новости">События в стране и региональные новости</button>
+                <button type="button" class="topic-button" data-value="Специальные репортажи и интервью">Специальные репортажи и интервью</button>
+            </div>
+
+            <!-- Hidden input to store selected topics -->
+            <input type="hidden" name="topics" id="selected-topics" value="">
+
+            <button type="submit" class="auth-button">Authenticate</button>
+        </form>
+    </div>
+
+    <!-- JavaScript to handle topic button selection -->
+    <script>
+        const topicButtons = document.querySelectorAll('.topic-button');
+        const selectedTopicsInput = document.getElementById('selected-topics');
+
+        // Function to toggle the selected state of a topic button
+        function toggleSelected(topicButton) {
+            topicButton.classList.toggle('selected');
+            updateSelectedTopics();
+        }
+
+        // Function to update the hidden input value with selected topics
+        function updateSelectedTopics() {
+            const selectedTopics = Array.from(topicButtons)
+                .filter(button => button.classList.contains('selected'))
+                .map(button => button.dataset.value);
+            selectedTopicsInput.value = selectedTopics.join(',');
+        }
+
+        // Add event listeners to topic buttons
+        topicButtons.forEach(button => {
+            button.addEventListener('click', () => toggleSelected(button));
+        });
+    </script>
+</body>
+
+</html>
+
