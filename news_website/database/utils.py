@@ -39,15 +39,15 @@ class AppModel(BaseModel):
         json_loads = orjson.loads
         # json_encoders = {datetime: convert_to_gmt, date: convert_to_gmt, ObjectId: str}
 
-    @root_validator(skip_on_failure=True)
-    def set_null_microseconds(cls, data: dict[str, Any]) -> dict[str, Any]:
-        datetime_fields = {
-            k: v.replace(microsecond=0)
-            for k, v in data.items()
-            if isinstance(k, datetime)
-        }
+    # @root_validator(skip_on_failure=True)
+    # def set_null_microseconds(cls, data: dict[str, Any]) -> dict[str, Any]:
+    #     datetime_fields = {
+    #         k: v.replace(microsecond=0)
+    #         for k, v in data.items()
+    #         if isinstance(k, datetime)
+    #     }
 
-        return {**data, **datetime_fields}
+    #     return {**data, **datetime_fields}
 
 
 
